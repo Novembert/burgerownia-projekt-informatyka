@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ../partials/head -%>
+</head>
+
+<body>
+    <%- include ../partials/header -%>
+    <nav>
+        <a href="/">Powrót</a>
+    </nav>
+    <main>
+    <h2>Zamówienia</h2>
+    <% orders.zamowienia.forEach((element,index) =>{ %>
+    <div class="order">
+        <h3>Zamówienie nr.: <%=index + 1%></h3> 
+        <%if(element.food) {%>
+        <h4>Jedzenie: </h4>
+        <ul>
+            <li><%=element.food%></li>
+        </ul>
+        <%}%>
+        <%if(element.drinks) {%>
+        <h4>Picie: </h4>
+        <ul>
+            <li><%=element.drinks%></li>
+        </ul>
+        <%}%>
+        <button id="delete_order" data-id="<%=element._id%>">Usuń</button>
+    </div>
+    <%})%>
+
+    <h3>Dodaj zamówienie</h3>
+    <form action="/orders" method="post" id="add_order_form">
+        <h4>Burgery</h4>
+        <%orders.jedzenie.forEach(element =>{%>
+            <div>
+                <input type="checkbox" id="<%=element.nazwa%>" value="<%=element.nazwa%>" name="fname">
+                <label for="<%=element.nazwa%>"><%=element.nazwa%></label>
+                <input type="number" step="1" ng-pattern="/^[0-9]{1,8}$|^$/" class="item_counter" name="fcount">
+            </div>
+        <%})%>
+        <h4>Napoje</h4>
+        <%orders.picie.forEach(element =>{%>
+            <div>
+                <input type="checkbox" id="<%=element.nazwa%>" value="<%=element.nazwa%>" name="dname">
+                <label for="<%=element.nazwa%>"><%=element.nazwa%></label>
+                <input type="number" step="1" ng-pattern="/^[0-9]{1,8}$|^$/" class="item_counter" name="dcount">
+            </div>
+        <%})%>
+        <input type="submit">
+    </form>
+    </main>
+    <%- include ../partials/footer%>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

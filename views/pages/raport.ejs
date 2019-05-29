@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ../partials/head -%>
+</head>
+
+<body>
+    <%- include ../partials/header -%>
+    <nav>
+        <a href="/">Powrót</a>
+    </nav>
+    <main>
+    <h2>Raport</h2>
+    <ul>
+        <li>Najtańszy burger: <%=data.cheapestBurger.nazwa%> - <%=data.cheapestBurger.cena%>zł</li>
+        <li>Najtańszy napój: <%=data.cheapestDrink.nazwa%> - <%=data.cheapestDrink.cena%>zł</li>
+        <li>Najdroższy burger: <%=data.mostExpensiveBurger.nazwa%> - <%=data.mostExpensiveBurger.cena%>zł</li>
+        <li>Najdroższy napój: <%=data.mostExpensiveDrink.nazwa%> - <%=data.mostExpensiveDrink.cena%>zł</li>
+        <li>Najtańszy zestaw: <%=data.cheapestCollection.nazwaBurgera%> + <%=data.cheapestCollection.nazwaPicia%> - <%=data.cheapestCollection.cena%>zł</li>
+        <li>Najdroższy zestaw: <%=data.mostExpensiveCollection.nazwaBurgera%> + <%=data.mostExpensiveCollection.nazwaPicia%> - <%=data.mostExpensiveCollection.cena%>zł</li>
+        <li>Burger z najdłuższą nazwą: <%=data.longestNameBurger.nazwa%> - <%=data.longestNameBurger.cena%>zł</li>
+        <li>Napój z menu o największej pojemności: <%=data.greatestCapacityDrink.nazwa%>, <%=data.greatestCapacityDrink.pojemnosc%>L -  <%=data.greatestCapacityDrink.cena%>zł</li>
+        <li>Burger z największą ilością różnych składników: <%=data.greatestNumberOfIngredientsBurger.nazwa%> - <%=data.greatestNumberOfIngredientsBurger.cena%>zł
+        <br>
+        Składniki:
+        <ul>
+            <%data.greatestNumberOfIngredientsBurger.skladniki.forEach(element => {%>
+                <li><%=element%></li>
+            <%})%>
+        </ul>
+        </li>
+    </ul>
+    <button id="generateRaportButton">Generuj raport do pliku .txt</button>
+    </main>
+    <%- include ../partials/footer%>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ../partials/head -%>
+</head>
+
+<body>
+    <%- include ../partials/header -%>
+    <nav>
+        <a href="/products">Powrót</a>
+    </nav>
+    <main>
+    <%- include ../partials/edit_form%>
+    <h2><%=element.nazwa%> - <%=element.cena%>zł</h2>
+    <% if (element.pojemnosc) {%>
+    <h3>Pojemność: <%=element.pojemnosc%>L</h3>
+    <h3>Opcje:</h3>
+    <button class="delete_drink" data-id=<%=element._id%>>Usuń</button>
+    <button id="edit_btn" data-id=<%=element._id%>>Edytuj</button>
+    <%}%>
+    <% if (element.skladniki) {%>
+    <h3>Składniki:</h3>
+    <ul>
+        <%element.skladniki.forEach(skladnik =>{%>
+            <li><%=skladnik.charAt(0).toUpperCase() + skladnik.slice(1)%></li>
+        <%})%>
+    </ul>
+    
+    <h3>Opcje:</h3>
+    <button class="delete_food" data-id=<%=element._id%>>Usuń</button>
+    <button id="edit_btn" data-id=<%=element._id%>>Edytuj</button>
+    <%}%>
+    </main>
+    <%- include ../partials/footer%>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

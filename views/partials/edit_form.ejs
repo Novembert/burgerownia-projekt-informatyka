@@ -1,0 +1,96 @@
+<%if (element.pojemnosc) {%>
+
+<form method="post" action="/products/drink/<%=element._id%>" id="edit_form">
+    <div>
+            <label for="nazwa">Nazwa</label>
+            <input type="text" id="nazwa" name="nazwa" value="<%=element.nazwa%>">
+        </div>
+        <div>
+            <label for="cena">Cena</label>
+            <input type="number" id="cena" name="cena" step="0.01" value="<%=element.cena%>">
+        </div>
+        <div>
+            <label for="pojemnosc">Pojemność</label>
+            <input type="number" id="pojemnosc" name="pojemnosc" step="0.01" value="<%=element.pojemnosc%>">
+        </div>
+
+        <input type="submit" value="Prześlij">
+    
+</form>
+
+<%}%>
+
+<%if(element.skladniki) {%>
+    <form method="post" action="products/food/<%=element._id%>" id="edit_form">
+        <div>
+            <label for="nazwa">Nazwa</label>
+            <input type="text" id="nazwa" name="nazwa" value="<%=element.nazwa%>">
+        </div>
+        <div>
+            <label for="cena">Cena</label>
+            <input type="number" id="cena" name="cena" step="0.01" value="<%=element.cena%>">
+        </div>
+        <h4>Składniki: </h4>
+        <div class="checkbox">
+            <input type="checkbox" name="skladniki" id="wolowina" value="wołowina">
+            <label for="wolowina">Wołowina</label>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" name="skladniki" id="cheddar" value="ser cheddar">
+            <label for="cheddar">Ser cheddar</label>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" name="skladniki" id="salata" value="sałata">
+            <label for="salata">Sałata</label>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" name="skladniki" id="pomidor" value="pomidor">
+            <label for="pomidor">Pomidor</label>
+        </div>
+        <div class="checkbox">
+            <input type="checkbox" name="skladniki" id="ogorek" value="ogórek">
+            <label for="ogorek">Ogórek</label>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" name="skladniki" id="czerwona_cebula" value="czerwona cebula">
+            <label for="czerwona_cebula">Czerwona cebula</label>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" name="skladniki" id="prazona" value="prażona cebulka">
+            <label for="prazona">Prażona cebulka</label>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" name="skladniki" id="bekon" value="bekon">
+            <label for="bekon">Bekon</label>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" name="skladniki" id="chorizo" value="chorizo">
+            <label for="chorizo">Chorizo</label>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" name="skladniki" id="jalapeno" value="jalapeño">
+            <label for="jalapeno">Jalapeño</label>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" name="skladniki" id="rukola" value="rukola">
+            <label for="rukola">Rukola</label>
+        </div>
+
+        <div class="checkbox">
+            <input type="checkbox" name="skladniki" id="salsa" value="salsa z pomidorów">
+            <label for="salsa">Salsa z pomidorów</label>
+        </div>
+
+        <input type="submit" value="Prześlij">
+    
+</form>
+<%}%>
