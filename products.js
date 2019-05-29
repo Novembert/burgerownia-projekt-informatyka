@@ -13,12 +13,13 @@ router.get('/', (req, res, next) => {
 
 router.post('/food', (req, res, next) => {
     if (req.body.skladniki && req.body.nazwa && req.body.cena) {
+
         const food = products.jedzenie;
         let newFood = {
-            _id: String(Number(food[food.length - 1]._id) + 1),
+            _id: food.length > 0 ? Number(food[food.length - 1]._id + 1) : 1,
             nazwa: req.body.nazwa || 'Brak nazwy',
             cena: Number(req.body.cena) || 'Brak ceny',
-            skladniki: req.body.skladniki
+            skladniki: Array(req.body.skladniki)
         }
         products.jedzenie.push(newFood);
 
@@ -65,20 +66,24 @@ function showElement(res, element) {
 }
 
 router.patch('/food/:foodId', (req, res, next) => {
-    const id = req.params.foodId;
-    products.jedzenie.forEach(element => {
-        if (id == element._id)
-            updateFoodElement(req, res, element);
-    });
+    if (req.body.skladniki && req.body.nazwa && req.body.cena) {
+        const id = req.params.foodId;
+        products.jedzenie.forEach(element => {
+            if (id == element._id)
+                updateFoodElement(req, res, element);
+        });
+    }
 })
 
 router.patch('/drink/:drinkId', (req, res, next) => {
-    const id = req.params.drinkId;
-    products.picie.forEach(element => {
-        if (id == element._id) {
-            updateDrinkElement(req, res, element);
-        }
-    });
+    if (req.body.nazwa && req.body.cena && req.body.pojemnosc) {
+        const id = req.params.drinkId;
+        products.picie.forEach(element => {
+            if (id == element._id) {
+                updateDrinkElement(req, res, element);
+            }
+        });
+    }
 })
 
 
@@ -89,7 +94,7 @@ function updateFoodElement(req, res, element) {
         element.cena = Number(req.body.cena);
     if (element.skladniki != req.body.skladniki)
         element.skladniki = req.body.skladniki;
-
+    element.skladniki.push('Bułka')
     refreshProducts(products);
     res.status(201).json(element)
 }

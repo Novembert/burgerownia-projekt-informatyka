@@ -13,32 +13,6 @@
       "cena": 5.5
     }
   ],
-  "jedzenie": [
-    {
-      "_id": "2",
-      "nazwa": "Serburger",
-      "cena": 19,
-      "skladniki": [
-        "wołowina",
-        "ser cheddar",
-        "sałata",
-        "pomidor",
-        "ogórek"
-      ]
-    },
-    {
-      "_id": "3",
-      "nazwa": "Italiano",
-      "cena": 22.5,
-      "skladniki": [
-        "wołowina",
-        "ser cheddar",
-        "sałata",
-        "pomidor",
-        "czerwona cebula",
-        "salsa z pomidorów"
-      ]
-    }
-  ],
+  "jedzenie": [],
   "zamowienia": []
 }
