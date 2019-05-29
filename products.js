@@ -32,7 +32,7 @@ router.post('/drink', (req, res, next) => {
     if (req.body.nazwa && req.body.cena && req.body.pojemnosc) {
         const drinks = products.picie;
         let newDrink = {
-            _id: String(Number(drinks[drinks.length - 1]._id) + 1),
+            _id: drinks.length > 0 ? Number(drinks[drinks.length - 1]._id + 1) : 1,
             nazwa: req.body.nazwa | 'Brak nazwy',
             cena: Number(req.body.cena) | 'Brak ceny',
             pojemnosc: Number(req.body.pojemnosc)
