@@ -26,7 +26,7 @@ Dodaj napój/burgera/zamówienie
 Usuń napój/burgera/zamówienie 
 Edytuj napój/burgera 
 
-Struktura bazy danych – pliki o formacie JSON 
+Struktura bazy danych – plik w formacie JSON 
 
 Jedzenie – tutaj znajdują się obiekty burgerów, składające się z ceny, nazwy oraz składników 
 Picie – tutaj są obiekty napojów, składają się z ceny, nazwy oraz pojemności 
