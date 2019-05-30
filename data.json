@@ -1,18 +1,72 @@
 {
-  "picie": [
+  "picie": [],
+  "jedzenie": [
     {
-      "_id": "1",
-      "nazwa": "Coca Cola",
-      "pojemnosc": 0.5,
-      "cena": 6
+      "_id": 1,
+      "nazwa": "Klasyk",
+      "cena": 16,
+      "skladniki": [
+        "wołowina",
+        "sałata",
+        "pomidor",
+        "ogórek",
+        "czerwona cebula"
+      ]
     },
     {
-      "_id": "5",
-      "nazwa": "Woda",
-      "pojemnosc": "0.33",
-      "cena": 5.5
+      "_id": 2,
+      "nazwa": "Serburger",
+      "cena": 18,
+      "skladniki": [
+        "wołowina",
+        "ser cheddar",
+        "sałata",
+        "pomidor",
+        "ogórek",
+        "czerwona cebula"
+      ]
+    },
+    {
+      "_id": 3,
+      "nazwa": "Bekon BBQ",
+      "cena": 21,
+      "skladniki": [
+        "wołowina",
+        "ser cheddar",
+        "sałata",
+        "pomidor",
+        "ogórek",
+        "bekon",
+        "jalapeño"
+      ]
+    },
+    {
+      "_id": 4,
+      "nazwa": "Chorizard",
+      "cena": 21,
+      "skladniki": [
+        "wołowina",
+        "ser cheddar",
+        "sałata",
+        "pomidor",
+        "ogórek",
+        "chorizo"
+      ]
+    },
+    {
+      "_id": 5,
+      "nazwa": "Na Ostro",
+      "cena": 20,
+      "skladniki": [
+        "wołowina",
+        "ser cheddar",
+        "sałata",
+        "czerwona cebula",
+        "chorizo",
+        "jalapeño",
+        "salsa z pomidorów"
+      ]
     }
   ],
-  "jedzenie": [],
   "zamowienia": []
 }

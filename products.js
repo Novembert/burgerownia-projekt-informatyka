@@ -11,6 +11,10 @@ router.get('/', (req, res, next) => {
     res.render('pages/products', { products: products })
 })
 
+router.get('/api', (req, res, next) => {
+    res.json(products)
+})
+
 router.post('/food', (req, res, next) => {
     if (req.body.skladniki && req.body.nazwa && req.body.cena) {
 
@@ -19,10 +23,9 @@ router.post('/food', (req, res, next) => {
             _id: food.length > 0 ? Number(food[food.length - 1]._id + 1) : 1,
             nazwa: req.body.nazwa || 'Brak nazwy',
             cena: Number(req.body.cena) || 'Brak ceny',
-            skladniki: Array(req.body.skladniki)
+            skladniki: typeof req.body.skladniki == 'object' ? req.body.skladniki : Array(req.body.skladniki)
         }
         products.jedzenie.push(newFood);
-
         refreshProducts(products)
     }
     res.status(201).redirect('/products')
@@ -33,12 +36,12 @@ router.post('/drink', (req, res, next) => {
         const drinks = products.picie;
         let newDrink = {
             _id: drinks.length > 0 ? Number(drinks[drinks.length - 1]._id + 1) : 1,
-            nazwa: req.body.nazwa | 'Brak nazwy',
-            cena: Number(req.body.cena) | 'Brak ceny',
+            nazwa: req.body.nazwa || 'Brak nazwy',
+            cena: Number(req.body.cena) || 'Brak ceny',
             pojemnosc: Number(req.body.pojemnosc)
         }
         products.picie.push(newDrink);
-
+        console.log(req.body.nazwa)
         refreshProducts(products)
     }
     res.status(201).redirect('/products')

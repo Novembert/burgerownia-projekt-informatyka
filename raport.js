@@ -18,19 +18,23 @@ let data = JSON.parse(rawdata);
 router.get('/', (req, res, next) => {
     rawdata = fs.readFileSync('data.json');
     data = JSON.parse(rawdata);
-    let wynik = {
-        cheapestBurger: getCheapestElement(data.jedzenie),
-        cheapestDrink: getCheapestElement(data.picie),
-        mostExpensiveBurger: getMostExpensiveElement(data.jedzenie),
-        mostExpensiveDrink: getMostExpensiveElement(data.picie),
-        cheapestCollection: getCollection(getCheapestElement(data.jedzenie), getCheapestElement(data.picie)),
-        mostExpensiveCollection: getCollection(getMostExpensiveElement(data.jedzenie), getMostExpensiveElement(data.picie)),
-        longestNameBurger: getLongestNameBurger(data.jedzenie),
-        greatestNumberOfIngredientsBurger: getGreatestNumberOfIngredientsBurger(data.jedzenie),
-        greatestCapacityDrink: getGreatesCapacityDrink(data.picie)
-    }
+    if (data.jedzenie.length > 0 && data.picie.length > 0) {
+        let wynik = {
+            cheapestBurger: getCheapestElement(data.jedzenie),
+            cheapestDrink: getCheapestElement(data.picie),
+            mostExpensiveBurger: getMostExpensiveElement(data.jedzenie),
+            mostExpensiveDrink: getMostExpensiveElement(data.picie),
+            cheapestCollection: getCollection(getCheapestElement(data.jedzenie), getCheapestElement(data.picie)),
+            mostExpensiveCollection: getCollection(getMostExpensiveElement(data.jedzenie), getMostExpensiveElement(data.picie)),
+            longestNameBurger: getLongestNameBurger(data.jedzenie),
+            greatestNumberOfIngredientsBurger: getGreatestNumberOfIngredientsBurger(data.jedzenie),
+            greatestCapacityDrink: getGreatesCapacityDrink(data.picie)
+        }
 
-    res.render('pages/raport', { data: wynik })
+        res.render('pages/raport', { data: wynik })
+    }
+    else
+        res.render('pages/raportfail')
 })
 
 router.get('/download', (req, res, next) => {
