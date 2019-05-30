@@ -12,6 +12,8 @@ router.get('/', (req, res, next) => {
 })
 
 router.get('/api', (req, res, next) => {
+    const data = fs.readFileSync('data.json');
+    let products = JSON.parse(data);
     res.json(products)
 })
 

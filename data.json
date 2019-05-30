@@ -1,5 +1,48 @@
 {
-  "picie": [],
+  "picie": [
+    {
+      "_id": 1,
+      "nazwa": "Coca Cola",
+      "cena": 5,
+      "pojemnosc": 0.5
+    },
+    {
+      "_id": 2,
+      "nazwa": "Fritz Kola",
+      "cena": 8,
+      "pojemnosc": 0.33
+    },
+    {
+      "_id": 3,
+      "nazwa": "Fritz Limo",
+      "cena": 8,
+      "pojemnosc": 0.33
+    },
+    {
+      "_id": 4,
+      "nazwa": "Pierrot",
+      "cena": 4,
+      "pojemnosc": 0.33
+    },
+    {
+      "_id": 5,
+      "nazwa": "Sok",
+      "cena": 5,
+      "pojemnosc": 0.3
+    },
+    {
+      "_id": 6,
+      "nazwa": "Sok naturalny",
+      "cena": 7,
+      "pojemnosc": 0.25
+    },
+    {
+      "_id": 7,
+      "nazwa": "Woda",
+      "cena": 5,
+      "pojemnosc": 0.3
+    }
+  ],
   "jedzenie": [
     {
       "_id": 1,
